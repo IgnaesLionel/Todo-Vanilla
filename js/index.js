@@ -7,10 +7,12 @@ const load = document.getElementById('load')
 
 const tasks = ['Faire la vaisselle', 'Ranger le salon']
 
+const a = document.createElement('a')
+a.href = 'test.html'
+a.textContent = 'coucou'
 
-const testquery = document.querySelectorAll('button')
+const actions = document.getElementsByClassName('actions')[0]
 
-console.log (testquery)
+actions.appendChild(a)
 
-testquery[0].style.background="red"
-testquery[2].style.background="red"
+console.log (actions)
