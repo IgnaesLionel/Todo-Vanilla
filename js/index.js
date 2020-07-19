@@ -9,13 +9,9 @@ const tasks = ['Faire la vaisselle', 'Ranger le salon']
 
 console.log(url)
 
-const num1 = {
-  clef1 : "lol",
-  clef2 : "lolilol"
-}
+const testquery = document.querySelector('p')
 
-console.log(num1)
+console.log (testquery)
 
-num1[clef1]="test"
-
-console.log(num1)
+add.style.background="red"
+testquery.style.background="red"
