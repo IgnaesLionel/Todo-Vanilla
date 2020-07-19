@@ -7,11 +7,10 @@ const load = document.getElementById('load')
 
 const tasks = ['Faire la vaisselle', 'Ranger le salon']
 
-console.log(url)
 
-const testquery = document.querySelector('p')
+const testquery = document.querySelectorAll('button')
 
 console.log (testquery)
 
-add.style.background="red"
-testquery.style.background="red"
+testquery[0].style.background="red"
+testquery[2].style.background="red"
