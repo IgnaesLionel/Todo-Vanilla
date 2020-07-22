@@ -22,17 +22,13 @@ for (let i = 0; i < tasks.length; i++){
     list.insertBefore(li, list.firstChild)
 
 
-        li.textContent= tasks[i]
-        removebtn.textContent= 'Remove'
-        li.appendChild(removebtn)
-        // injection
-        list.insertBefore(li, list.firstChild)
-
-
-            li.textContent= tasks[i]
-            removebtn.textContent= 'Remove'
-            li.appendChild(removebtn)
-            // injection
-            list.insertBefore(li, list.firstChild)
   }
 }
+
+function hello(name, ...lastname) {
+  return console.log(`Salut ${name} ${lastname}`)
+
+}
+
+hello("jean", "dujardin", "test1")
+hello("jean", "dujardin", "test1","test1","test1","test1")
