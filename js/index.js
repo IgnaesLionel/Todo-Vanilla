@@ -30,6 +30,8 @@ function showTasks (taskData) {
 
     //event click -> supprimer le noeud parent (li)
     removebtn.addEventListener('click', () => {
+      const value = removebtn.parentNode.firstChild.textContent
+      storage.remove(value)
      list.removeChild(removebtn.parentNode)
     })
 
@@ -37,26 +39,26 @@ function showTasks (taskData) {
     li.appendChild(removebtn)
     // injection
     list.insertBefore(li, list.firstChild)
+
+    return true
   }
+  return false
 }
 
 //affichage
 tasks.forEach(task => showTasks(task))
 
-
-function reset () { for (let i = 0; i < tasks.length; i++){
-    showTasks(tasks[i])
-
-  }}
-
 //ajout de taches
 function newTask () {
+  // -1 = pas de doublon et pas vide
+  if (storage.list.indexOf(input.value) === -1 && showTasks(input.value)) {
+    storage.set(input.value)
+    //vider l'input
+    input.value=''
+  }
   //garder le focus sur le btn add
   input.focus()
-  tasks.push(input.value)
-  reset()
 }
-
 
 add.addEventListener('click', newTask)
 input.addEventListener('keydown', (e) =>{
@@ -67,10 +69,29 @@ input.addEventListener('keydown', (e) =>{
 
 //vide le UL en entier
 clear.addEventListener('click',() => {
+  storage.clear()
   list.innerHTML = ''
+
 })
 
 // importation de tâches
 load.addEventListener('click', () => {
-
+fetch(url.value)
+  .then(response => {
+    if (response.ok) {
+      return response.json()
+    }
+    throw new Error(`${response.statusText} (${response.status})`)
+  })
+  .then (tasks => {
+    if (Array.isArray(tasks)){
+      tasks.forEach(task => {
+        if (storage.list.indexOf(task) === -1 && showTasks(task)) {
+          storage.set(task)
+        }
+      })
+        return
+    }
+    throw new TypeError("la réponse n'est pas un tableau Json")
+  })
 })

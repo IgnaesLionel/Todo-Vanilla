@@ -18,14 +18,14 @@ class ArrayStorage {
   //ajout d'une valeur dans le tableau
   set (value){
     this.list.push(value)
-    localStorage.setItem(this.name, Json.stringify(this.list))
+    localStorage.setItem(this.name, JSON.stringify(this.list))
 
   }
   //retirer une valeur dans le tableau
   remove(value){
     const index = this.list.indexOf(value)
     this.list.splice(index, 1)
-    localStorage.setItem(this.name, Json.stringify(this.list))
+    localStorage.setItem(this.name, JSON.stringify(this.list))
   }
   //vider le tableau
   clear() {
