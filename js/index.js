@@ -5,7 +5,7 @@ const clear = document.getElementById('clear')
 const url = document.getElementById('url')
 const load = document.getElementById('load')
 
-const tasks = ['Faire la vaisselle', 'Ranger le salon', 'Ranger la chambre']
+const tasks = ['Faire la vaisselle', 'Ranger le salon', 'Ranger la chambre', 'test']
 
 
 // Ajout des taches au dom avec un btn de suppression
