@@ -1,3 +1,5 @@
+'use strict'
+
 const list = document.getElementById('list')
 const input = document.getElementById('input')
 const add = document.getElementById('add')
