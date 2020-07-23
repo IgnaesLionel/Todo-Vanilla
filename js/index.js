@@ -7,7 +7,12 @@ const clear = document.getElementById('clear')
 const url = document.getElementById('url')
 const load = document.getElementById('load')
 
-const tasks = ['Faire la vaisselle', 'Ranger le salon', 'Ranger la chambre', 'test']
+//Nouvelle instance pour la clé 'tasks'
+
+const storage = new ArrayStorage('tasksKey')
+
+//récupération du tableau des tâches
+const tasks = storage.list
 
 
 // Ajout des taches au dom avec un btn de suppression
